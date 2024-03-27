@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
-import Message from './Message.jsx';
+import Message from './Message';
 
-const socket = io('http://localhost:5001');
+const socket = io('http://localhost:5000');
 
 function App() {
   const [messages, setMessages] = useState([]);
@@ -24,11 +24,7 @@ function App() {
       <h1>Real-Time Chat App</h1>
       <div className="messages">
         {messages.map((message, index) => (
-          <Message
-            key={index}
-            username={message.username}
-            text={message.text}
-          />
+          <Message key={index} username={message.username} text={message.text} />
         ))}
       </div>
       <div className="input-box">
